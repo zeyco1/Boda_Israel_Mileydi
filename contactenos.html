@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .cover-image {
+            width: 25%;
+            height: auto;
+            margin-bottom: 20px;
+            margin-left: auto;
+            margin-right: auto;
+            display: block;
+        }
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        .contact-info {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .mapa-info {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .boton-abrir-mapa {
+            background-color: #d7abff; /* Fondo lila */
+            color: #6e266e; /* Texto del mismo color que el borde */
+            border: 2px solid #6e266e; /* Borde morado oscuro */
+            padding: 15px 30px; /* Aumentado el tamaño del botón */
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold; /* Texto en negrita */
+            display: block;
+            margin: 20px auto; /* Centrado */
+        }
+        
+    </style>
+</head>
+<body>
+
+    <section id="contactenos">
+        <img class="cover-image" src="contactenos.png" alt="contactenos">
+        <button class="boton-abrir-mapa" onclick="abrirEnlace()">Abrir Mapa</button>
+        <div class="contact-info" style="width: 400px; margin: 20px auto; background-color: #eae3fc; padding: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
+            <p style="font-weight: bold;">Ubicación:</p>
+            <p>Panamá, San Miguelito, Mano de Piedra, La Paz, Iglesia Adventista de Peniel Frente a la capilla la medalla milagrosa</p>
+        </div>
+
+        <div class="mapa-info">           
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7880.101319540394!2d-79.48632794712061!3d9.059143858530843!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8fab566be9279d7b%3A0x25184429f02e1788!2sIglesia%20Adventista%20del%20S%C3%A9ptimo%20D%C3%ADa%20-%20Peniel%20Pan!5e0!3m2!1ses!2spa!4v1704940095452!5m2!1ses!2spa" width="800" height="600" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+
+        <div class="opciones-transporte" style="width: 400px; margin: 20px auto; background-color: #eae3fc; padding: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
+            <p style="font-weight: bold;">Cómo llegar en Transporte Público:</p>
+            <p>Opción 1: Desde Albrook Mall o San Miguelito tome el Metro o Bus hasta la estación de Los Andes, En la Caseta del metro bus, debe encontrar el letrero que dice Mano de Piedra o pregunte donde se toman los buses de la ruta en la caseta, puede tomar cualquier Bus de Mano de Piedra, mejor si es Directo, debe bajarse en la parada La Paz-R, al bajarse del bus a su espalda estará la Iglesia. Costo - Metro: 0.35 - Bus: 0.25 - Total: 0.60</p>
+            <img class="cover-image" src="Opcion1.png" alt="contactenos">
+            <p>Opción 2: Desde Albrook mall Tome un corredor de Mano de Piedra y se baja en la parada La Paz-R Costo – Bus Corredor: 0.75 - Total: 0.75</p>
+            <img class="cover-image" src="Opcion2.png" alt="contactenos">
+            <p>Opción 3: Desde Albrook mall Tome un corredor de Torrijos Carter, debe bajarse en la parada Cerro Batea-R para hacer un trasbordo de la ruta de Mano de Piedra y se baja en la parada La Paz-R Costo – Bus Corredor: 0.75 - Bus: 0.25 - Total: 1.00</p>
+            <p>Opción 4: Desde Los Andes tome un Uber o InDrive escriba la palabra ‘La Paz-R’ Costo – Uber: 4.00 Aprox. - InDrive 3.00 Aprox. Nota: verifique que sea en San Miguelito</p>
+            <img class="cover-image" src="Uber.jpg" alt="contactenos">
+            <p>Opción 5: Desde Los Andes tome un Taxi Con Dirección a Mano de Piedra, Calle Principal, La Paz, Iglesia Adventista de Peniel Costo – Taxi: 3.50 a 5.00 Aprox - Nota: no pague más de 5 dólares</p>
+            <p>Opción 6: Desde Los Andes tome una chiva o Coster de Torrijos Carter, pregunte antes de subir si pasa por Mano de Piedra, si no pasa ni se suba, hágase cerca del secretario designado que va anunciando las paradas, este atento a la parada llamada Chávez unas cuantas paradas después se encuentra la parada de la iglesia de Peniel llamada La Veinte (La 20) Costo – Chiva: 0.50 - Busitos: 1.50 - Nota: este atento a las paradas</p>
+            <br>
+            <br>Contacto: 
+            <br>Joel Sáenz
+            <br>+507 6817-9511
+        </div>
+
+        <script>
+            function abrirEnlace() {
+                window.open('https://maps.app.goo.gl/sW1hhLhnay31Kr3B7', '_blank');
+            }
+        </script>
+    </section>
+</body>
+</html>

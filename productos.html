@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .cover-image {
+            width: 25%;
+            height: auto;
+            margin-bottom: 20px;
+            margin-left: auto;
+            margin-right: auto;
+            display: block;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #FFFFFF;
+            color: #25003b;
+            margin: 0;
+            padding: 0;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 2px solid #0b003b;
+            padding: 10px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #20003b;
+            color: #FFFFFF;
+            position: sticky;
+            top: 0;
+            z-index: 1;
+        }
+
+        img.product-image {
+            max-width: 250px;
+            max-height: 250px;
+        }
+        .rotate-message {
+            text-align: center;
+            margin: 20px;
+        }
+        .rotate-image {
+            width: 20%;
+            height: auto;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+</head>
+<body>
+    <section id="productos">
+        <img class="cover-image" src="productos.png" alt="productos" width="1000">
+        <!-- Imagen GIF para giro automático -->
+        <div class="rotate-message">
+            <img class="rotate-image" src="girar_celular.gif" alt="Girar Celular">
+            <p>Si está viendo esta invitación desde un celular, active el giro automático y voltee su celular para leer correctamente la historia de cada foto.</p>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>NOMBRE</th>
+                    <th>FOTO</th>
+                    <th>DESCRIPCION</th>
+                </tr>
+            </thead>
+            <tbody id="productTableBody">
+                <!-- Los registros se agregarán con JavaScript -->
+            </tbody>
+        </table>
+
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                var productNames = [ /*producto1*/ "Mileydi Martínez"
+                                    ,/*producto2*/"Israel Sáenz"
+                                    ,/*producto3*/ "Primera Cita"
+                                    ,/*producto4*/ "Novios en Biomuseo"
+                                    ,/*producto5*/ "Nuestra Mamá"
+                                    ,/*producto6*/ "Primer paseo juntos"
+                                    ,/*producto7*/ "Paseo Familiar"
+                                    ,/*producto8*/ "Primer año de Novios"
+                                    ,/*producto9*/ "Reunión Familiar"
+                                    ,/*producto10*/ "Propuesta"];
+                var productDescriptions = [  /*producto1*/ "Hola, Soy Mileydi, mi color Favorito es el morado, mi número favorito es el 6, mi comida favorita es el pollito frito y mi postre favorito es el cheesecake"
+                                            ,/*producto2*/ "Hola, Soy Israel, mi color Favorito es el azul, mi número favorito es el 7, mi comida favorita son los coditos con tuna y mi postre favorito es el chocolate"
+                                            ,/*producto3*/ "Tuvimos varias salidas como amigos, pero ese día le invite a una cita, fue vestida de mi color favorito sin ella saberlo, le dije que me gustaba, ella también dijo que yo también le gustaba mucho, me arme de valor y le pedí que fuéramos novios" 
+                                            ,/*producto4*/ "Esta fue una de muchas salidas espontaneas, para salir de la rutina, pasamos por el Causeway, vimos el Biomuseo y dijimos ¡Ey!, ¿porque no entramos ahí a ver cosas de museo? y asi fue como aprendimos más de Historia."
+                                            ,/*producto5*/ "Ese día comimos pastita con nuestra madre y vimos varias fotos de cuando Mileydi era solo una bebe, era una niña bravita con carita amarrada, no le gustaba que le tomaran fotos :D"
+                                            ,/*producto6*/ "Esa fue nuestro primer paseo juntos, Mileydi no quería salir del mar, es como una sirena, una vez entra al agua no quiere salir, le dije que tenemos que volver a casa o nos íbamos a meter en problemas, la tuve que sacar cargada o no se iba"
+                                            ,/*producto7*/ "Paseo de Cumpleaños con la familia, ese día pasaron cosas buenas, pero se disloco el hombro por estar saltando en una banana, terminamos en el hospital y nos tuvimos que devolver, pero ya está mejor, desde ahí no volvió a estar más salada"
+                                            ,/*producto8*/ "Aqui cumplimos nuestro primer año de novios, Mileydi conoció por primera vez a casi todos mis amigos en la Boda de Horacio"
+                                            ,/*producto9*/ "Esta Navidad pasamos la pasamos en familia en donde comimos hasta reventar y compartimos juntos el cierre del 2023"
+                                            ,/*producto10*/ "En este momento me arme de valor para proponerle ser mi esposa, es una mujer maravillosa, cariñosa y muy atenta conmigo, siempre ora por mi como también yo lo hago por ella, oramos por toda nuestra familia y amigos, si llegaste hasta aquí queremos agradecerle haber aceptado nuestra invitación y estaremos ansiosos de verle en nuestra boda"];
+                var tableBody = document.getElementById("productTableBody");
+    
+                for (var i = 0; i < 10; i++) {
+                    var row = document.createElement("tr");
+    
+                    var nameCell = document.createElement("td");
+                    nameCell.textContent = productNames[i];
+                    row.appendChild(nameCell);
+    
+                    var photoCell = document.createElement("td");
+                    var img = document.createElement("img");
+                    img.className = "product-image";
+
+                    img.src = "product" + (i + 1) + ".jpg";
+
+                    photoCell.appendChild(img);
+                    row.appendChild(photoCell);
+    
+                    var descriptionCell = document.createElement("td");
+                    descriptionCell.textContent = productDescriptions[i];
+                    row.appendChild(descriptionCell);
+    
+                    tableBody.appendChild(row);
+                }
+            });
+        </script>
+    </section>
+</body>
+</html>

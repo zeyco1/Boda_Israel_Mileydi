@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <title>Boda Israel y Mileydi</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #e4c6e2;
+            color: rgb(0, 0, 0);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        nav a {
+            color: rgb(0, 0, 0);
+            text-decoration: none;
+            margin: 0 15px;
+            padding: 15px;
+            transition: background-color 0.3s;
+        }
+
+        nav a:hover {
+            background-color: #f8f8f8;
+        }
+
+        footer {
+            background-color: #e4c6e2;
+            color: rgb(0, 0, 0);
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        #dayOfWeek {
+            margin-right: 50px; 
+        }
+        
+        main {
+            padding: 20px;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <img src="logo.png" alt="Logo" width="50">
+    <nav>
+        <a href="#" onclick="cambiarContenido('inicio.html')">INVITACION</a>
+        <a href="#" onclick="cambiarContenido('contactenos.html')">UBICACION</a>
+        <a href="#" onclick="cambiarContenido('productos.html')">FOTOS</a>
+    </nav>
+    <script>
+        const daysOfWeek = ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'];
+        const today = new Date();
+        const dayOfWeek = daysOfWeek[today.getDay()];
+        document.write('<span id="dayOfWeek">' + dayOfWeek + '</span>');
+
+        function getHeaderHeight() {
+            const header = document.querySelector('header');
+            return header.offsetHeight;
+        }
+
+        function handleLinkClick(event) {
+            event.preventDefault();
+            const targetId = event.target.getAttribute('href').substring(1);
+            const targetElement = document.getElementById(targetId);
+            const headerHeight = getHeaderHeight();
+
+            window.scrollTo({
+                top: targetElement.offsetTop - headerHeight,
+                behavior: 'smooth',
+            });
+        }
+
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', handleLinkClick);
+        });
+
+                function cambiarContenido(pagina) {
+            document.getElementById('contenido').src = pagina;
+        }
+    </script>
+</header>
+
+<main>
+    <iframe src="inicio.html" id="contenido" frameborder="0" width="100%" height="870px"></iframe>
+</main>
+
+<footer>
+    (Israel Saenz) 2024. Sitio Web con los derechos reservados.
+</footer>
+</body>
+</html>

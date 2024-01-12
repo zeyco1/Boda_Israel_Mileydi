@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Estilos para la ventana modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+        }
+
+        /* Estilos para el resto de la página */
+        .cover-image {
+            width: 40%;
+            height: auto;
+            margin-bottom: 20px;
+            margin-left: auto;
+            margin-right: auto;
+            display: block;
+        }
+
+        .section-text {
+            margin-bottom: 20px;
+            text-align: center;
+            align-items: center;
+        }
+
+        .products {
+            display: flex;
+            flex-wrap: wrap;
+            text-align: center;
+            align-items: center;
+        }
+
+        .product {
+            width: calc(33.33% - 20px);
+            margin: 10px auto;
+            text-align: center;
+            align-items: center;
+        }
+        .rotate-message {
+            text-align: center;
+            margin: 20px;
+        }
+        .rotate-image {
+            width: 20%;
+            height: auto;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Obtener el elemento modal y el botón de cerrar
+            var modal = document.getElementById('modal');
+            
+            // Mostrar la ventana modal
+            modal.style.display = 'flex';
+
+            // Función para verificar el código cuando se hace clic en el botón "Ingresar"
+            var ingresarBtn = document.getElementById('ingresarBtn');
+            ingresarBtn.addEventListener('click', function () {
+                validarCodigo();
+            });
+
+            // Función para validar el código al presionar la tecla Enter
+            var codigoInput = document.getElementById('codigoInput');
+            codigoInput.addEventListener('keydown', function (event) {
+                if (event.key === 'Enter') {
+                    validarCodigo();
+                }
+            });
+
+            // Función para verificar el código y mostrar el mensaje correspondiente
+            function validarCodigo() {
+                // Obtener el valor del código
+                var codigo = codigoInput.value;
+
+                // Verificar si se ha ingresado un código
+                if (codigo.length === 4) {
+                    // Construir la ruta de la imagen correspondiente al código ingresado
+                    var rutaImagen = 'codeAcc/' + codigo + '.png';
+
+                    // Verificar si la imagen existe
+                    var imagen = new Image();
+                    imagen.onload = function () {
+                        // Si la imagen existe, actualizar la imagen 'codeAcc.png' y cerrar la ventana modal
+                        var codeAccImage = document.getElementById('codeAccImage');
+                        codeAccImage.src = rutaImagen;
+                        modal.style.display = 'none';
+                    };
+
+                    imagen.onerror = function () {
+                        // Si la imagen no existe, mostrar un mensaje de alerta
+                        alert('El código ingresado no es válido.');
+                    };
+
+                    imagen.src = rutaImagen;
+                } else {
+                    // Si no se ha ingresado un código válido, mostrar un mensaje en la ventana modal
+                    var mensaje = document.getElementById('mensaje');
+                    mensaje.textContent = "Por favor, ingrese un código de 4 dígitos válido.";
+                }
+            }
+        });
+    </script>
+</head>
+<body>
+
+<!-- Ventana modal -->
+<div id="modal" class="modal">
+    <div class="modal-content">
+        <label for="codigoInput">Ingresa un código de 4 dígitos: </label>
+        <input type="text" id="codigoInput" maxlength="4">
+        <button id="ingresarBtn">Ingresar</button>
+        <p id="mensaje"></p>
+        <p id="instruccion">Si no conoce el código, digite 0000</p>
+    </div>
+</div>
+
+<section id="inicio">
+    
+    <img id="codeAccImage" class="cover-image" src="codeAcc.png" alt="codeAcc">
+    <div class="section-text">
+        <p>Queremos extenderle una cariñosa y cordial invitación.
+            <br>Usted es nuestro invitado de honor para nuestra boda.
+            <br>Vestimenta semi formal, por favor no usar vestidos blancos.
+            <br>Lugar: Iglesia de Peniel
+            <br>Fecha: 3-Febrero-2024
+            <br>Hora: 7:00 p.m.
+            <br><br>
+            <iframe width="700px" height="1000px" src="https://forms.office.com/Pages/ResponsePage.aspx?id=f1H1ULXM0Uic8P_xsPZbyK73KwR3GElBmwYM8TyAiYRUN1dWUDRVU09UN1hQSTMzMFlFREJSOTVWRS4u&embed=true" frameborder="0" marginwidth="0" marginheight="0" style="border: none; max-width:100%; max-height:100vh" allowfullscreen webkitallowfullscreen mozallowfullscreen msallowfullscreen> </iframe>
+            <br><br>
+        </p>
+    </div>
+
+        <!-- Imagen GIF para giro automático -->
+        <div class="rotate-message">
+            <img class="rotate-image" src="Sobres.gif" alt="Girar Celular">
+            <p style="font-weight: bold;">Regalo:</p>
+            <p>lluvia de sobres</p>
+            <p>Nota: No deje de venir por un regalo, no es obligatorio, usted es más importante para nosotros.</p>
+        </div>
+
+    <div class="products">
+        <!-- Banner para Quienes Somos -->
+        <div class="product">
+              <a href="productos.html">
+                <img src="banner_quienes_somos.jpg" alt="Banner Quienes Somos" width="200">
+                <p>Fotos</p>
+            </a>
+        </div>
+        <!-- Banner para Productos -->
+        <div class="product">
+            <a href="contactenos.html">
+                <img src="banner_productos.jpg" alt="Banner Productos" width="200">
+                <p>Ubicación</p>
+            </a>
+        </div>
+    </div>
+
+</section>
+
+</body>
+</html>
